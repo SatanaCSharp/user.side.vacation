@@ -1,0 +1,39 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: visible;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+  }
+
+.modal-window {
+    margin: 40px auto;
+    padding: 20px;
+    position: relative;
+    background: #fff;
+    border-radius: 5px;
+    @media ($screen-md-min) {
+        width: 40%;
+    }
+    @media ($screen-tablet-break) {
+        width: 50%;
+    }
+    @media ($screen-sm-max) {
+        width: 70%;
+    }
+    &__header{
+      width: 100%;
+      padding: 0 0 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .icon-close {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
