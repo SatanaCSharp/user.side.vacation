@@ -9,7 +9,7 @@ import {
     getUserData,
     setSignInData,
     getSignInData} from '../../../services/localStorageService';
-    
+
 class SignInPage extends Component {
     state = {
         userId: '',
