@@ -1,7 +1,7 @@
 import { takeEvery, call, put } from "redux-saga/effects";
 import { USER_PENDING, USER_EDIT_PENDING } from "../constants/actionTypes";
 import { getUserRequest, putUserRequest } from "../services/requestService";
-import { userRejected, userFulfilled, userEditFulfilled } from "../actions/userActionCreator";
+import {userRejected, userFulfilled, userEditFulfilled, userEditRejected} from "../actions/userActionCreator";
 function* getUser(action) {
     try{
         const { payload :{userId, token}} = action;
@@ -17,7 +17,7 @@ function* editUser(action) {
         const user = yield call(async ()=> await putUserRequest({userId, token, firstName, lastName, email, hiredDate}));
         yield put(userEditFulfilled(user))
     } catch(err) {
-        yield put(userRejected());
+        yield put(userEditRejected());
     }
 }
 
