@@ -6,7 +6,7 @@ const SignInInputGroup = ({ email, password, rememberMe, handleEmailInputChange,
         <input type="password"  className="input-group__password" placeholder="Password" value={password} onChange={handlePasswordInputChange}/>
         <section className="input-group__checkbox">
             <div className="pretty p-default p-round">
-                <input type="checkbox" id="remember-me" className="remember-me" defaultChecked={rememberMe} onChange={handleRememberMeCheckboxChange}/>
+                <input type="checkbox" id="remember-me" className="remember-me" checked={rememberMe} onChange={handleRememberMeCheckboxChange}/>
                 <div className="state p-success-o">
                     <label htmlFor="remember-me" className="input-group__checkbox_label">Remember me</label>
                 </div>

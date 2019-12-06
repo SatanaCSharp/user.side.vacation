@@ -7,7 +7,8 @@ import {
     setUserData,
     clearSignInData,
     getUserData,
-    setSignInData} from '../../../services/localStorageService';
+    setSignInData,
+    getSignInData} from '../../../services/localStorageService';
     
 class SignInPage extends Component {
     state = {
@@ -46,9 +47,19 @@ class SignInPage extends Component {
                 userId,
                 token
               });
+              console.log("Authorized");
           });
     };
-
+    componentDidMount() {
+       const {signInEmail, signInPassword} =  getSignInData();
+       if(signInEmail && signInPassword ) {
+           this.setState({
+                email: signInEmail,
+                password: signInPassword,
+                rememberMe: true
+           });
+       }
+    }
     render () {
         const {email, password, rememberMe } = this.state;
 

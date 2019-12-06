@@ -12,6 +12,12 @@ const clearUserData = () => {
     localStorage.removeItem("userId");
     localStorage.removeItem("token");
 }
+const getSignInData =  () => {
+    return {
+        signInEmail: localStorage.getItem("signInEmail"),
+        signInPassword: localStorage.getItem("signInPassword")
+    }
+}
 const setSignInData = (email, password) => {
     localStorage.setItem("signInEmail", email);
     localStorage.setItem("signInPassword", password);
@@ -27,5 +33,6 @@ export {
     setUserData,
     clearUserData,
     setSignInData,
-    clearSignInData
+    clearSignInData,
+    getSignInData
 }
