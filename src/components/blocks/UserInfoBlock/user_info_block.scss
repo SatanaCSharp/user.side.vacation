@@ -29,6 +29,7 @@
         font-family: $fontPoppins;
     }
     .full-name, .balance, .email, .hired-date {
+        word-break: break-all;
         &__info {
             color: $userInfoColor;
             font-weight: 400;

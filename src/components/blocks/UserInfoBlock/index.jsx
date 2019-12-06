@@ -37,7 +37,7 @@ const BalanceBlock = ({balance}) => (
 const UserInfoBlock = ({ props, handleEditUserButtonClick })=> (
     <section className="user-info">
         <section className="user-info__avatar">
-            <Buttons.EditButton handleButtonClick={handleEditUserButtonClick}/>
+            <Buttons.EditUserButton handleButtonClick={handleEditUserButtonClick}/>
             <img  src="http://gsdl.org.in/gsdl%20image/user.png" alt=""/>
         </section>
         <section className="user-info__details">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Buttons, InputGroup } from '../../blocks';
+import { Buttons, Inputs } from '../../blocks';
 import { Link } from "react-router-dom";
 import config from '../../../config';
 import axios from  'axios';
@@ -19,17 +19,12 @@ class SignInPage extends Component {
         rememberMe: false,
         errors: []
     };
-    handleEmailInputChange = ({target: {value } }) => {
+    handleInputChange = ({ target: {name, value } }) => {
         this.setState({
-            email: value
+            [name]: value
         });
     };
-    handlePasswordInputChange = ({target: {value } }) => {
-        this.setState({
-            password: value
-        });
-    };
-    handleRememberMeCheckboxChange = ({target: {checked}}) => {
+    handleCheckboxChange = ({target: {checked}}) => {
         this.setState({ rememberMe: checked });
         if(checked && this.state.email && this.state.password ) {
             setSignInData(this.state.email, this.state.password);
@@ -67,15 +62,35 @@ class SignInPage extends Component {
             <section className="sign-in-page content">
                 <section className="container">
                         <h3 className="sign-in-page__title">Sign In</h3>
-                        <img className="sign-in-page__user-photo" src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Account-512.png" alt=""/>
-                        <InputGroup.SignInInputGroup
-                            email = { email }
-                            password = { password }
-                            rememberMe = { rememberMe }
-                            handleEmailInputChange = {this.handleEmailInputChange}
-                            handlePasswordInputChange = {this.handlePasswordInputChange}
-                            handleRememberMeCheckboxChange = {this.handleRememberMeCheckboxChange}
-                        />
+                        <img className="sign-in-page__user-photo"
+                             src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Account-512.png"
+                             alt=""/>
+                    <section className="input-group">
+                        <Inputs.InputEmail
+                            handleInputChange={this.handleInputChange}
+                            nameOfClass={"input-group__email"}
+                            placeholder={"Email"}
+                            name={"email"}
+                            value={email}/>
+                        <Inputs.InputPassword
+                            handleInputChange={this.handleInputChange}
+                            nameOfClass={"input-group__password"}
+                            placeholder={"Password"}
+                            name={"password"}
+                            value={password}/>
+                        <section className="input-group__checkbox">
+                            <div className="pretty p-default p-round">
+                                <Inputs.InputCheckbox
+                                    isChecked={rememberMe}
+                                    nameOfClass={"remember-me"}
+                                    id={"remember-me"}
+                                    handleCheckboxChange={this.handleCheckboxChange}/>
+                                <div className="state p-success-o">
+                                    <label htmlFor="remember-me" className="input-group__checkbox_label">Remember me</label>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
                         <div className="sign-up-page__button">
                             <Buttons.SuccessButton
                                 buttonTitle="Sign In"

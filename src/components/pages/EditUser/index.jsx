@@ -1,7 +1,7 @@
 import React, { Component} from "react";
 import Modal  from "../../portals/Modal";
 import { connect } from "react-redux";
-import { Inputs } from "../../blocks";
+import {Buttons, DatePickers, Inputs} from "../../blocks";
 import { ToastContainer } from 'react-toastify';
 import { getUserData } from "../../../services/localStorageService";
 import { userEditPending } from "../../../actions/userActionCreator";
@@ -17,18 +17,20 @@ class EditUser extends Component {
         lastName: '',
         email: '',
         hiredDate: '',
-    }
-    initUserState(user) {
-        const { firstName, lastName, email, hiredDate } = user;
-        const userData = getUserData();
-        this.setState({
-            userId: userData.userId,
-            token: userData.token,
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            hiredDate: new Date(hiredDate).toISOString(),
-        });
+    };
+    static getDerivedStateFromProps(props, state) {
+        const {props: { firstName, lastName, email, hiredDate } } = props;
+        const {userId, token} = getUserData();
+        if(!firstName && !lastName && !userId && !token && !email && !hiredDate) return null;
+        if(state.userId && state.token && state.firstName && state.lastName && state.email && state.hiredDate) return null;
+        return {
+            userId,
+            token,
+            firstName,
+            lastName,
+            email,
+            hiredDate: new Date(hiredDate),
+        }
     }
     handleInputChange = ({target: {name, value } }) => {
         this.setState({
@@ -39,7 +41,7 @@ class EditUser extends Component {
         this.setState({
             hiredDate: date
         });
-    }
+    };
 
     handleButtonClick = () => {
         const errorsService = new ErrorsService();
@@ -51,31 +53,59 @@ class EditUser extends Component {
           this.props.dispatch(userEditPending({ userId, token, firstName, lastName, email, hiredDate }));
           this.props.onClose();
         }
-    }
+    };
 
-    componentDidMount() {
-        this.initUserState(this.props.user);
-    }
 
     render () {
-        const props = this.state;
+        const {  firstName, lastName, email, hiredDate } = this.state;
+        if(!this.props.isOpen) return null;
         return(
-            <Modal
-            title="Edit personal detail"
-            isOpen={this.props.isOpen}
-            onClose={this.props.onClose}
-            >
+            <>
                 <ToastContainer />
-                <section className="user-edit">
-                        <Inputs.EditUserInputGroup
-                            props={props}
-                            handleInputChange={this.handleInputChange}
-                            handleButtonClick={this.handleButtonClick}
-                            handleInputDateChange={this.handleInputDateChange}
-                        />
-                </section>
-            </Modal>
-
+                <Modal
+                title="Edit personal detail"
+                isOpen={this.props.isOpen}
+                onClose={this.props.onClose}
+                >
+                    <section className="user-edit">
+                        <section className="input-group input-group-modal">
+                            <section className= "input-group__user-name">
+                                <Inputs.InputText
+                                    name={"firstName"}
+                                    value={firstName}
+                                    nameOfClass={"input-group__user-name_first"}
+                                    placeholder={"First Name"}
+                                    handleInputChange={this.handleInputChange}
+                                />
+                                <Inputs.InputText
+                                    name={"lastName"}
+                                    value={lastName}
+                                    nameOfClass={"input-group__user-name_last"}
+                                    placeholder={"Last Name"}
+                                    handleInputChange={this.handleInputChange}
+                                />
+                            </section>
+                            <Inputs.InputEmail
+                                value={email}
+                                name={"email"}
+                                nameOfClass={"input-group__email"}
+                                placeholder={"Email"}
+                                handleInputChange={this.handleInputChange}
+                            />
+                             <section className="input-group__date-picker">
+                                <DatePickers.InputDatePicker
+                                    hiredDate={hiredDate}
+                                    handleInputDateChange={this.handleInputDateChange}
+                                />
+                            </section>
+                            <Buttons.SuccessButton
+                                buttonTitle="Edit"
+                                handleButtonClick={this.handleButtonClick}
+                            />
+                        </section>
+                    </section>
+                </Modal>
+            </>
         )
     }
 }

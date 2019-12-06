@@ -6,7 +6,6 @@ import { getUserData } from './services/localStorageService';
 import './components/styles/index.scss';
 function App() {
   const {userId, token} =  getUserData();
-  console.log(getUserData());
   return (
     <div className="app">
         <HeaderBlock/>

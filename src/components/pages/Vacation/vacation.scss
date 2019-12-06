@@ -1,0 +1,14 @@
+.vacations {
+    padding: 30px 15px;
+    margin: 15px 0;
+    min-height: 500px;
+    display: flex;
+    box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+    @media ($screen-sm-min) {
+        width: 70%;
+    }
+    @media ($screen-sm-max) {
+        width: auto;
+        min-height: 300px;
+    }
+}
