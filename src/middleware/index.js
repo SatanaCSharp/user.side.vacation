@@ -1,5 +1,7 @@
 import userRootSaga from "./usersMiddleware";
+import vacationsRootSaga from "./vacationsMiddleware";
 
 export {
-    userRootSaga
+    userRootSaga,
+    vacationsRootSaga
 }

@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import { EDIT_USER_FORM_ERRORS, SIGH_UP_FORM_ERRORS } from '../constants/errorTypes';
 import EditUserFormError from './errors/EditUserFormError';
-import mapFormErrorToArray from './mappers/mapFormErrorToArray';
+import mapFormErrorToArray from './mappers/mapFromErrorToArray';
 import SignUpFormError from './errors/SignUpFormError';
 class ErrorsService {
     constructor() {

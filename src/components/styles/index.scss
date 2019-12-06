@@ -1,9 +1,13 @@
 @import 'fonts/font-families.scss';
 @import 'config/vars.scss';
 @import 'config/global.scss';
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
 @import '../blocks/Buttons/buttons.scss';
 @import '../blocks/Inputs/inputs.scss';
+@import '../blocks/InputGroup/input_group.scss';
 @import '../blocks/Footer/footer.scss';
 @import '../blocks/Header/header.scss';
 @import '../portals/modal.scss';
 @import '../blocks/Loader/loader.scss';
+@import '../pages/SignIn/sign_in.scss';
+@import '../pages/SignUp/sign_up.scss';
