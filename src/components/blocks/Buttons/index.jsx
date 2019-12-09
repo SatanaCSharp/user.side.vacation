@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiX, FiEdit2, FiTrash } from "react-icons/fi";
+import { FiX, FiEdit2, FiTrash, FiPlus } from "react-icons/fi";
 import { FaInfo } from "react-icons/fa";
 import  * as  PropTypes   from 'prop-types';
 import {Link} from "react-router-dom";
@@ -19,13 +19,22 @@ const CloseButton = ({ handleButtonClick }) => (
     <FiX size={25} color={"#6c757d"} onClick={handleButtonClick}/>
 );
 const DeleteButton = ({ handleButtonClick }) => (
-    <FiTrash size={20}  color={"#8a2727"} onClick={handleButtonClick}/>
+    <span className="action action-delete" onClick={handleButtonClick}>
+        <FiTrash size={12}  color={"#fff"}/>
+    </span>
 );
 const EditButton = ({ handleButtonClick }) => (
-    <FiEdit2 size={20} color={"#008CBA"} onClick={handleButtonClick}/>
+    <span className="action action-edit" onClick={handleButtonClick}>
+        <FiEdit2 size={12} color={"#fff"}/>
+    </span>
 );
 const ShowButton = ({ handleButtonClick }) => (
-    <FaInfo size={20} color={"#008CBA"} onClick={handleButtonClick}/>
+    <span className="action  action-show" onClick={handleButtonClick}>
+        <FaInfo size={12} color={"#fff"} />
+    </span>
+);
+const AddButton = ({ handleButtonClick }) => (
+    <FiPlus size={20} color={"#57bea5"} onClick={handleButtonClick}/>
 );
 const EditUserButton = ({handleButtonClick})=>(
     <section className="btn-link">
@@ -65,6 +74,9 @@ EditUserButton.propTypes = {
 ShowButton.propTypes = {
     handleButtonClick: PropTypes.func.isRequired
 };
+AddButton.propTypes = {
+    handleButtonClick: PropTypes.func.isRequired
+};
 
 
 
@@ -77,5 +89,6 @@ export {
     BackButton,
     DefaultButton,
     EditUserButton,
-    ShowButton
+    ShowButton,
+    AddButton
 }

@@ -9,9 +9,12 @@ const InputPassword = ({value, name, placeholder, nameOfClass, handleInputChange
 const InputEmail = ({value, name, placeholder, nameOfClass, handleInputChange})=> (
     <input type="email" name={name} value={value} onChange={handleInputChange} placeholder={placeholder} className={nameOfClass}/>
 );
-
 const InputCheckbox = ({ id, nameOfClass, isChecked, handleCheckboxChange })=> (
     <input type="checkbox" id={id} className={nameOfClass} checked={isChecked} onChange={handleCheckboxChange}/>
+);
+
+const InputTextArea = ({value, name, placeholder, nameOfClass, handleInputChange})=> (
+    <textarea  value={value} name={name} onChange={handleInputChange}  className={nameOfClass} placeholder={placeholder}/>
 );
 
 InputText.propTypes = {
@@ -41,11 +44,20 @@ InputCheckbox.propTypes = {
     nameOfClass: PropTypes.string.isRequired,
     handleCheckboxChange: PropTypes.func.isRequired
 };
-
-
+InputTextArea.propTypes = {
+    value: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    nameOfClass: PropTypes.string.isRequired,
+    handleInputChange: PropTypes.func.isRequired
+};
+InputTextArea.defaultProps = {
+    value: ''
+};
 export {
     InputText,
     InputPassword,
     InputEmail,
-    InputCheckbox
+    InputCheckbox,
+    InputTextArea
 }

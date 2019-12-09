@@ -42,7 +42,7 @@ class SignInPage extends Component {
                 userId,
                 token
               });
-              console.log("Authorized");
+              this.props.history.push('/cabinet');
           });
     };
     componentDidMount() {

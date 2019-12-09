@@ -1,0 +1,36 @@
+
+.vacation-delete {
+    .modal-buttons {
+        display: flex;
+        width: 100%;
+        @media ($screen-sm-min) {
+            justify-content: flex-end;
+        }
+        @media ($screen-sm-max) {
+            justify-content: center;
+        }
+        .delete-btn  {
+            margin: 0 15px 0 0;
+        }
+    }
+    .dates {
+        padding: 0 0 15px;
+        display: flex;
+        justify-content: center;
+        &__end-date {
+            padding: 0 0 0 5px;
+        }
+        &__start-date {
+            padding: 0 5px 0 0;
+        }
+    }
+
+    .description {
+        padding: 0 0 15px;
+        text-align: center;
+        word-break: break-all;
+    }
+}
+
+
+

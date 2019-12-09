@@ -1,8 +1,10 @@
-import { toast } from 'react-toastify';
-import { EDIT_USER_FORM_ERRORS, SIGH_UP_FORM_ERRORS } from '../constants/errorTypes';
+import {toast} from 'react-toastify';
+import {EDIT_USER_FORM_ERRORS, SIGH_UP_FORM_ERRORS, VACATION_FORM_ERRORS} from '../constants/errorTypes';
 import EditUserFormError from './errors/EditUserFormError';
 import mapFormErrorToArray from './mappers/mapFromErrorToArray';
 import SignUpFormError from './errors/SignUpFormError';
+import VacationFormError from "./errors/VacationFormError";
+
 class ErrorsService {
     constructor() {
         this.errors = [];
@@ -22,14 +24,15 @@ class ErrorsService {
                 return new EditUserFormError(formData);
             case SIGH_UP_FORM_ERRORS:
                 return new SignUpFormError(formData);
+             case VACATION_FORM_ERRORS:
+                return new VacationFormError(formData);
             default:
                 return {};
-        };
+        }
     }
     setFormErrorsIfExists(type, formData) {
         const formError = this.createFormError(type, formData);
-        const formErrors = this.getFormErrors(formError);
-        this.errors = formErrors;
+        this.errors = this.getFormErrors(formError);
     }
     showErrors() {
         if(this.errors.length) {

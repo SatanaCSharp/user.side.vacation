@@ -75,3 +75,29 @@
          }
      }
  }
+.action {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    @media ($screen-xs-max) {
+        margin: 0 0 5px;
+    }
+}
+.action-show{
+    background-color: #1a89d9;
+    &:hover {
+        background-color: #1677b4;
+    }
+}
+.action-edit{
+    background-color: #57bea5;
+    &:hover {
+        background-color: #30aaa5;
+    }
+}
+.action-delete{
+    background-color: #bc2a26;
+    &:hover {
+        background-color: #ad2824;
+    }
+}

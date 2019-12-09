@@ -58,23 +58,13 @@
     }
     &__date-picker {
         display: inline-flex;
-        @media ($screen-sm-min) {
-            justify-content: space-between;
-        }
-        @media ($screen-sm-max) {
-            flex-direction: column;
-            align-items: center;
-        }
+        flex-direction: column;
+        align-items: center;
         .react-datepicker-wrapper {
+            width: 100%;
             display: inline-flex;
-            @media ($screen-sm-min) {
-                width: 45%;
-            }
-            @media ($screen-sm-max) {
-                width: 100%;
-            }
             input {
-                width: 90%;
+                width: 100%;
             }
         }
     }
@@ -96,6 +86,7 @@
         }
     }
     &__description {
+        width: auto;
         height: 120px;
         margin: 0 0 15px;
         padding: 5px 10px;
@@ -105,12 +96,6 @@
         outline: none;
         &:hover {
             border-color: $baseBg;
-        }
-        @media ($screen-sm-min) {
-            width: 95%;
-        }
-        @media ($screen-sm-max) {
-            width: 90%;
         }
     }
     &__passwords {

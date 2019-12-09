@@ -1,8 +1,9 @@
 .vacations {
-    padding: 30px 15px;
-    margin: 15px 0;
     min-height: 500px;
+    margin: 15px 0;
+    padding: 30px 15px;
     display: flex;
+    flex-direction: column;
     box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
     @media ($screen-sm-min) {
         width: 70%;
@@ -10,5 +11,35 @@
     @media ($screen-sm-max) {
         width: auto;
         min-height: 300px;
+    }
+    .header {
+        height: 45px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media ($screen-sm-min){
+            width: 50%;
+            margin: 0 30px 0 auto;
+        }
+        @media ($screen-sm-max){
+            margin: 0 30px;
+        }
+        &__title {
+            font-size: 25px;
+            font-family: "Poppins", sans-serif;
+            color: #31af91;
+        }
+        svg {
+            padding: 5px;
+            border: 1px solid #57bea5;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover {
+                border-color: #529f86;
+            }
+        }
+    }
+    &__container {
+        padding: 15px 30px;
     }
 }
