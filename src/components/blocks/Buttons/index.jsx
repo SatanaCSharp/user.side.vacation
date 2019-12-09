@@ -1,7 +1,7 @@
 import React from 'react';
-import { FiX, FiEdit2, FiTrash } from "react-icons/fi";
-import { GiFamilyTree } from "react-icons/gi";
-import PropTypes  from 'prop-types';
+import { FiX, FiEdit2, FiTrash, FiPlus } from "react-icons/fi";
+import { FaInfo } from "react-icons/fa";
+import  * as  PropTypes   from 'prop-types';
 import {Link} from "react-router-dom";
 const SuccessButton = ({buttonTitle, handleButtonClick }) => (
     <button className={"success-btn "} onClick={  handleButtonClick}>{buttonTitle}</button>
@@ -19,15 +19,28 @@ const CloseButton = ({ handleButtonClick }) => (
     <FiX size={25} color={"#6c757d"} onClick={handleButtonClick}/>
 );
 const DeleteButton = ({ handleButtonClick }) => (
-    <FiTrash size={25}  color={"#8a2727"} onClick={handleButtonClick}/>
+    <span className="action action-delete" onClick={handleButtonClick}>
+        <FiTrash size={12}  color={"#fff"}/>
+    </span>
 );
 const EditButton = ({ handleButtonClick }) => (
-    <FiEdit2 size={25} color={"#008CBA"} onClick={handleButtonClick}/>
+    <span className="action action-edit" onClick={handleButtonClick}>
+        <FiEdit2 size={12} color={"#fff"}/>
+    </span>
 );
-const TreeButton = ({ handleButtonClick }) => (
-    <GiFamilyTree  size={25} color={"#555555"} onClick={handleButtonClick}/>
+const ShowButton = ({ handleButtonClick }) => (
+    <span className="action  action-show" onClick={handleButtonClick}>
+        <FaInfo size={12} color={"#fff"} />
+    </span>
 );
-
+const AddButton = ({ handleButtonClick }) => (
+    <FiPlus size={20} color={"#57bea5"} onClick={handleButtonClick}/>
+);
+const EditUserButton = ({handleButtonClick})=>(
+    <section className="btn-link">
+        <span className="btn-link__edit" onClick={handleButtonClick} ><FiEdit2 color={"#fff"} /></span>
+    </section>
+);
 
 SuccessButton.propTypes = {
     buttonTitle: PropTypes.string.isRequired,
@@ -55,7 +68,13 @@ DeleteButton.propTypes = {
 EditButton.propTypes = {
     handleButtonClick: PropTypes.func.isRequired
 };
-EditButton.propTypes = {
+EditUserButton.propTypes = {
+    handleButtonClick: PropTypes.func.isRequired
+};
+ShowButton.propTypes = {
+    handleButtonClick: PropTypes.func.isRequired
+};
+AddButton.propTypes = {
     handleButtonClick: PropTypes.func.isRequired
 };
 
@@ -66,8 +85,10 @@ export {
     CloseButton,
     DeleteButton,
     EditButton,
-    TreeButton,
     DeleteBtnModal,
     BackButton,
-    DefaultButton
+    DefaultButton,
+    EditUserButton,
+    ShowButton,
+    AddButton
 }

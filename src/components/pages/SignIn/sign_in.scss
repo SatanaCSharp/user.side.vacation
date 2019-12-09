@@ -1,0 +1,55 @@
+.sign-in-page {
+    font-family: $fontPoppins;
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    &__title {
+        padding: 15px 0;
+        text-align: center;
+        color: $baseColor;
+        font-size: 35px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    &__user-photo {
+        margin: 0 auto;
+        padding: 0 0 50px ;
+        width: 120px;
+    }
+    &__button {
+        margin: 0 auto;
+        @media ($screen-md-min) {
+            width: 50%;
+        }
+        @media ($screen-tablet-break) {
+            width: 70%;
+        }
+        @media ($screen-sm-max) {
+            width: 100%;
+        }
+    }
+    .links {
+        width: 100%;
+        .links-list {
+            padding: 0;
+            list-style: none;
+            @media ($screen-sm-min) {
+                width: 50%;
+                margin: 15px auto 0;
+            }
+            &__link-item {
+                text-align: center;
+                a {
+                    color: $baseColor;
+                    font-size: 14px;
+                    text-decoration: underline;
+                    cursor: pointer;
+                    &:hover {
+                        color: $baseHoverColor;
+                    }
+                }
+            }
+        }
+    }
+}

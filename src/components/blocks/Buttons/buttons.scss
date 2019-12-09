@@ -58,3 +58,46 @@
         background-color: $baseColor;
     }
 }
+.btn-link {
+     position: absolute;
+     right: 0;
+     &__edit {
+         width: 20px;
+         padding: 10px 8px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         background-color: #57bea5;
+         border-radius: 50px;
+         &:hover{
+             cursor: pointer;
+             box-shadow: 0 6px 10px 0 rgba(48,187,154,.35);
+         }
+     }
+ }
+.action {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    @media ($screen-xs-max) {
+        margin: 0 0 5px;
+    }
+}
+.action-show{
+    background-color: #1a89d9;
+    &:hover {
+        background-color: #1677b4;
+    }
+}
+.action-edit{
+    background-color: #57bea5;
+    &:hover {
+        background-color: #30aaa5;
+    }
+}
+.action-delete{
+    background-color: #bc2a26;
+    &:hover {
+        background-color: #ad2824;
+    }
+}

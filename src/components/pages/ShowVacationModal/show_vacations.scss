@@ -1,0 +1,19 @@
+.vacation-show {
+    .dates {
+        padding: 0 0 15px;
+        display: flex;
+        justify-content: center;
+        &__end-date {
+          padding: 0 0 0 5px;
+        }
+        &__start-date {
+          padding: 0 5px 0 0;
+        }
+    }
+
+    .description {
+        padding: 0 0 15px;
+        text-align: center;
+        word-break: break-all;
+    }
+}

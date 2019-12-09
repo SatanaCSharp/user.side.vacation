@@ -1,0 +1,44 @@
+.user-info {
+    min-width: 245px;
+    max-height: min-content;
+    width: 20%;
+    margin: 15px 35px 15px 0;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 25px 0 rgba(0,0,0,.1);
+    @media ($screen-sm-max) {
+        align-self: center;
+    }
+    &__avatar {
+        position: relative;
+        img {
+            width: 120px;
+        }
+    }
+    &__details {
+        width: 60%;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .title {
+        font-size: 20px;
+        color: $baseColor;
+        font-family: $fontPoppins;
+    }
+    .full-name, .balance, .email, .hired-date {
+        word-break: break-all;
+        &__info {
+            color: $userInfoColor;
+            font-weight: 400;
+            font-size: 16px;
+            font-family: $fontPoppins;
+        }
+    }
+    .first-name {
+        padding: 0 5px 0 0;
+    }
+
+}
